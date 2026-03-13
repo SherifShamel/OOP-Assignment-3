@@ -22,5 +22,10 @@ namespace OOP___Assignment03.Classes
         {
             return $"Movie Name: {MovieName}\nSub Total: {Price - ServiceFee}\nTicket Id: {TicketId}\nLounge Access: {(LoungeAccess ? "Yes" : "No")}\nService Fee: {ServiceFee}\nTotal: {Price}";
         }
+
+        public override void PrintTicket()
+        {
+            Console.WriteLine($"Ticket: ${TicketId}, MovieName: ${MovieName}, Price: ${Price}, Price After Tax: ${PriceAfterTax()}, Lounge Access: ${LoungeAccess}, Service Fee: ${ServiceFee}");
+        }
     }
 }

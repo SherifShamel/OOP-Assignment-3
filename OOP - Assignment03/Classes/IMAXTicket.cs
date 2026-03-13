@@ -19,5 +19,10 @@ namespace OOP___Assignment03.Classes
         {
             return $"Movie Name: {MovieName}\nPrice: {Price}\nTicket Id: {TicketId}\nTicketType: IMAX\nMovie Type: {(Is3D ? "3D" : "Normal")}";
         }
+
+        public override void PrintTicket()
+        {
+            Console.WriteLine($"Ticket: ${TicketId}, MovieName: ${MovieName}, Price: ${Price}, Price After Tax: ${PriceAfterTax()}, Film Type: ${(Is3D ? "3D" : "Standard")}");
+        }
     }
 }

@@ -19,5 +19,11 @@ namespace OOP___Assignment03.Classes
         {
             return $"Movie Name: {MovieName}\nPrice: {Price}\nTicket Id: {TicketId}\nSeat Number: {SeatNumber}";
         }
+
+        public override void PrintTicket()
+        {
+            Console.WriteLine($"Ticket: ${TicketId}, MovieName: ${MovieName}, Price: ${Price}, Price After Tax: ${PriceAfterTax()}, Seat Number: ${SeatNumber}");
+        }
+
     }
 }

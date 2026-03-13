@@ -36,5 +36,10 @@ namespace OOP___Assignment03.Classes
             Projector.CloseCinema();
         }
 
+        public static void ProcessTicket(Ticket t)
+        {
+            t.PrintTicket();
+        }
+
     }
 }

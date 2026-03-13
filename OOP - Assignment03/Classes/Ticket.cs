@@ -33,7 +33,6 @@ namespace OOP___Assignment03.Classes
             TicketId++;
             MovieName = movieName;
             Price = price;
-            
         }
 
         public decimal PriceAfterTax()
@@ -50,6 +49,22 @@ namespace OOP___Assignment03.Classes
         static int GetTotalTickets()
         {
             return TicketId;
+        }
+
+        public virtual void PrintTicket()
+        {
+            Console.WriteLine($"Ticket Id: {TicketId}, MovieName: {MovieName}, Price: {Price}, Price After Tax: {PriceAfterTax()}");
+        }
+
+        public void SetPrice(decimal price)
+        {
+            Price = price;
+            Console.WriteLine($"Setting Price Directly: {Price}");
+        }
+        public void SetPrice(decimal price, decimal multiplier)
+        {
+            Price = price * multiplier;
+            Console.WriteLine($"Setting Price With Multiplier: {price} x {multiplier} => {Price}");
         }
     }
 }
