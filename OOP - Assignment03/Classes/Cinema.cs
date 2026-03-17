@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OOP___Assignment03.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,22 +7,22 @@ using System.Threading.Tasks;
 
 namespace OOP___Assignment03.Classes
 {
-    internal class Cinema
+    internal class Cinema:IPrintTicket
     {
         public Ticket Ticket { get; set; }
         public string CinemaName { get; set; }
         Projector Projector = new Projector();
-
-        public void AddTicket(Ticket t)
-        {
-            Ticket = t;
-        }
 
         public Cinema(Ticket t, string cinemaName)
         {
             Ticket = t;
             CinemaName = cinemaName;
         }
+        public void AddTicket(Ticket t)
+        {
+            Ticket = t;
+        }
+
         public void PrintAllTickets()
         {
             Console.WriteLine(Ticket);
@@ -41,5 +42,9 @@ namespace OOP___Assignment03.Classes
             t.PrintTicket();
         }
 
+        public void PrintTicket()
+        {
+            Console.WriteLine($"Cinema: {CinemaName}, {PrintAllTickets}") ;
+        }
     }
 }

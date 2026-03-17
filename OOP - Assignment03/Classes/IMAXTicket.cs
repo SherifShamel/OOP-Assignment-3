@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OOP___Assignment03.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OOP___Assignment03.Classes
 {
-    internal class IMAXTicket : Ticket
+    internal class IMAXTicket : Ticket, IPrintTicket
     {
         public bool Is3D { get; set; }
         public IMAXTicket(bool is3rd, string movieName, decimal price) : base(movieName, price)
@@ -20,9 +21,14 @@ namespace OOP___Assignment03.Classes
             return $"Movie Name: {MovieName}\nPrice: {Price}\nTicket Id: {TicketId}\nTicketType: IMAX\nMovie Type: {(Is3D ? "3D" : "Normal")}";
         }
 
-        public override void PrintTicket()
+        public void PrintTicket()
         {
             Console.WriteLine($"Ticket: ${TicketId}, MovieName: ${MovieName}, Price: ${Price}, Price After Tax: ${PriceAfterTax()}, Film Type: ${(Is3D ? "3D" : "Standard")}");
+        }
+
+        public override object Clone()
+        {
+            return new IMAXTicket(Is3D, MovieName, Price);
         }
     }
 }

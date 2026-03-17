@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OOP___Assignment03.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OOP___Assignment03.Classes
 {
-    internal class Ticket
+    internal class Ticket : IPrintTicket, ICloneable
     {
         public string MovieName { get; set; }
         private decimal price;
@@ -51,7 +52,7 @@ namespace OOP___Assignment03.Classes
             return TicketId;
         }
 
-        public virtual void PrintTicket()
+        public void PrintTicket()
         {
             Console.WriteLine($"Ticket Id: {TicketId}, MovieName: {MovieName}, Price: {Price}, Price After Tax: {PriceAfterTax()}");
         }
@@ -66,5 +67,12 @@ namespace OOP___Assignment03.Classes
             Price = price * multiplier;
             Console.WriteLine($"Setting Price With Multiplier: {price} x {multiplier} => {Price}");
         }
+
+        public virtual object Clone()
+        {
+            return new Ticket(this.MovieName, this.Price);
+        }
+
+
     }
 }
